@@ -7,7 +7,9 @@ const Problem2 = () => {
     const [allContactmodal, setAllContactModal] = useState(false);
     const [usContactmodal, setUsContactModal] = useState(false);
 
-    const toggleAllContactModal = () => setAllContactModal(!allContactmodal);
+    const toggleAllContactModal = () => {
+        setAllContactModal(!allContactmodal);
+    }
     const toggleUsContactModal = () => setUsContactModal(!usContactmodal);
 
     return (
@@ -20,8 +22,8 @@ const Problem2 = () => {
                 <button onClick={toggleAllContactModal} className="btn btn-lg btn-outline-primary" type="button" >All Contacts</button>
                 <button onClick={toggleUsContactModal} className="btn btn-lg btn-outline-warning" type="button" >US Contacts</button>
                 </div>
-                <AllContacts modal={allContactmodal} toggle={toggleAllContactModal}/>
-                <UsContacts modal={usContactmodal} toggle={toggleUsContactModal}/>
+                <AllContacts modal={allContactmodal} toggle={toggleAllContactModal} toggleUs={toggleUsContactModal}/>
+                <UsContacts toggleAll={toggleAllContactModal} modal={usContactmodal} toggle={toggleUsContactModal}/>
             </div>
         </div>
     );

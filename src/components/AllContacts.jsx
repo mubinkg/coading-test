@@ -2,7 +2,7 @@ import axios from 'axios';
 import {useEffect, useState} from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Table, Input, Label } from 'reactstrap';
 
-const AllContacts = ({ modal, toggle }) => {
+const AllContacts = ({ modal, toggle , toggleUs}) => {
     const [contacts, setContacts] = useState([])
     const [loading,setLoading] = useState(false)
     
@@ -33,7 +33,7 @@ const AllContacts = ({ modal, toggle }) => {
 
     return (
         <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>All Country</ModalHeader>
+            <ModalHeader toggle={toggle}>All Contacts</ModalHeader>
             <ModalBody>
                 <div>
                     <Label>Contatct</Label>
@@ -68,8 +68,13 @@ const AllContacts = ({ modal, toggle }) => {
                 </Table>
             </ModalBody>
             <ModalFooter>
-                <Button color="primary" onClick={toggle}>
-                    Do Something
+                <Button color="primary" onClick={
+                    ()=>{
+                        toggle();
+                        toggleUs();
+                    }
+                }>
+                    Us Contacts
                 </Button>{' '}
                 <Button color="secondary" onClick={toggle}>
                     Cancel
