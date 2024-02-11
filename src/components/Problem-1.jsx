@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 const Problem1 = () => {
-
     const [show, setShow] = useState('all');
     const [data, setData] = useState([])
     const [viewData, setViewData] = useState([])
